@@ -42,7 +42,16 @@ Sẽ tạo ra file package.json
 }
 
 ```
+=> Sau khi điền hết các thông tin thì bạn đã tạo thành công 1 ứng dụng NodeJS (NodeJS là ngôn ngữ nền tảng để chạy được ứng dụng JS)
 
+- Mỗi ứng dụng sẽ có 1 file JS main (liên kết đến toàn bộ các file JS khác trong ứng dụng). Ở đây chính là file index.js => Bạn có thể nhận biết file main của 1 ứng dụng bằng cách đọc trong package.json:
+```json
+{"main": "index.js"}
+```
+=> Vì đây là ứng dụng NodeJS nên cách chạy ứng dụng sẽ có cú pháp như sau:
+```shell
+node src/index.js
+```
 
 Bước 2: Viết API thêm sửa xoá
 Bước 3: Kết nối database
