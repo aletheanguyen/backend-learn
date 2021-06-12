@@ -5,7 +5,7 @@ interface Product {
 }
 
 let prod: Product = {
-    name: "ho hieu"
+    name: "ho hieu 123"
 }
 
 console.log(prod);

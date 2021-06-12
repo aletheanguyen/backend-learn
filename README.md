@@ -97,8 +97,49 @@ Nhưng việc build và start sẽ diễn ra rất thường xuyên nên để n
   },
 ```
 
+* Một số thư viện cần biết:
+1. npm install ts-node
+Như đã nói, để chạy 1 ứng dụng TS, luôn phải trải qua 2 bước build => run
 
+Tuy nhiên, khi số lượng file nhiều lên việc start sẽ tốn rất nhiều tgian. Nên để tăng hiệu năng làm việc, , bạn có thể cài đặt thư viên
+```shell
+npm install ts-node
+```
+Thư viện này sẽ giúp, ứng dụng đọc thẳng từ file ts mà k cần chuyển đổi sang js.
+Cách chạy lệnh như sau:
+```shell
+npx ts-node src/index.ts
+```
+Tuy nhiên, việc đọc trực tiếp file ts có 1 vài hạn chế nên thường chỉ sử dụng trong giai đoạn dev thôi nhé!
+=> Để nhanh hơn, bạn nên định nghĩa lệnh này trên file package.json luôn nhé:
 
+2. npm install nodemon
+Nodemon là thư viện giúp tự động chạy các lệnh khi lắng nghe được sự thay đổi trên những file bạn đã định nghĩa.
+```shell
+npm install nodemon
+```
+Với thư viện này bạn phải tự tạo tay 1 file có tên: nodemon.json cùng nội dung file như sau nhé:
+```json
+
+{
+    "watch": ["src"], // danh sách thư mục bạn muốn lắng nghe
+    "ext": "ts,json", // các định dạng file bạn cần lắng nghe trong thư mục
+    "ignore": ["src/**/*.spec.ts"], // danh sách file k cần lắng nghe
+    "exec": "ts-node ./src/index.ts" // danh sách lệnh bạn muốn thực hiện khi có sự thay đổi trên các file đã chỉ định
+  }
+  ```
+Để nodemon được thực hiện việc lắng nghe, bạn phải khởi tạo nó bằng lệnh
+```shell
+npx nodemon
+```
+Tuy nhiên, việc đọc trực tiếp file ts có 1 vài hạn chế nên thường chỉ sử dụng trong giai đoạn dev thôi nhé!
+=> Để nhanh hơn, bạn nên định nghĩa lệnh này trên file package.json luôn nhé!
+Ex:
+```json
+"scripts": {
+    "start-dev": "nodemon",
+  },
+  ```
 
 
 
