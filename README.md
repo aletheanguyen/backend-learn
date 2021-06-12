@@ -19,7 +19,31 @@ Bước 1: Tạo 1 ứng dụng BE
 ```shell
     npm init
 ```
-=> 
+Sẽ tạo ra file package.json 
+```json
+{
+  "name": "backend-learn",
+  "version": "0.0.1",
+  "description": "Learn backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aletheanguyen/backend-learn.git"
+  },
+  "author": "aletheanguyen2629@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aletheanguyen/backend-learn/issues"
+  },
+  "homepage": "https://github.com/aletheanguyen/backend-learn#readme"
+}
+
+```
+
+
 Bước 2: Viết API thêm sửa xoá
 Bước 3: Kết nối database
 Bước 4: Xây dựng tính năng Đăng nhập 
