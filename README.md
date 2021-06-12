@@ -59,6 +59,48 @@ Ngoài cách này, bạn có thể tự định nghĩa 1 lệnh ngắn để ch�
      "start":"node src/index.js"
 }
 ```
+Tuy nhiên code trên JS sẽ không được hỗ trợ việc định nghĩa kiểu dữ liệu => không chặt chẽ về mặt cấu trúc dữ liệu
+=> TS được sinh ra như 1 ngôn ngữ để hỗ trợ việc định nghĩa các model, interface để làm cho cấu trúc code được chặt chẽ hơn và có tính ràng buộc hơn
+* Cách cài thư viện ts:
+```shell
+npm install typescript
+```
+Lúc này thư mục typescript sẽ xuất hiện trong folder node_modules
+Để chuyển đổi APP JS hiện tại sang APP TS => cần chạy lệnh
+```shell
+npx tsc --init
+```
+Lúc này file tsconfig.json sẽ được tạo và chứa các lệnh cài đặt cho ứng dụng TS 
+
+Sau khi chuyển đổi từ JS sang TS, bạn có thể đổi đuôi của file index từ index.js sang index.ts để định nghĩa được các interface mà k bị báo lỗi nữa
+
+***=>*** Tuy nhiên, TS là ngôn ngữ để hỗ trợ người đọc hiểu dễ hơn chứ k phải dành cho máy đọc nên bất kì khi nào start project, luôn cần build file index.ts sang dạng index.js trước rồi mới npm start.
+
+Lệnh để như sau:
+```shell
+npx tsc
+```
+=> Nếu thấy folder dist xuất hiện nghĩa là đã build thành công
+=> Chuyển sang dạng câu lệnh trên package.json:
+```json
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "build": "tsc"
+  },
+///Không cần define "npx tsc" vì trong file package.json, sẽ tự ngầm hiểu có npx
+```
+Nhưng việc build và start sẽ diễn ra rất thường xuyên nên để nhanh hơn, bạn có thể vừa build vừa run khi chạy lệnh npm start bằng cách sau
+```json
+"scripts": {
+    "start": "npm run build; node dist/index.js",
+  },
+```
+
+
+
+
+
 
 Bước 2: Viết API thêm sửa xoá
 Bước 3: Kết nối database
