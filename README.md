@@ -53,6 +53,13 @@ Sẽ tạo ra file package.json
 node src/index.js
 ```
 
+Ngoài cách này, bạn có thể tự định nghĩa 1 lệnh ngắn để chạy ứng dụng bằng cách thêm đoạn code sau trong phần script ở file package.json
+```json
+{
+     "start":"node src/index.js"
+}
+```
+
 Bước 2: Viết API thêm sửa xoá
 Bước 3: Kết nối database
 Bước 4: Xây dựng tính năng Đăng nhập 
