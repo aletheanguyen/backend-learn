@@ -140,11 +140,40 @@ Ex:
     "start-dev": "nodemon",
   },
   ```
+Bước 2: Viết API
+Để viết API, mình sẽ sử dụng 2 thư viện Express và body-parser bằng câu lệnh sau:
+```shell
+npm install express @types/express --save
+npm install body-parser
+```
+Sau đó bạn dán đoạn code sau vào file index.ts
+```json
+const express = require('express')
+const app = express()
+// Đây là nơi để bạn viêt API nhé
+})
+app.listen(your-port)
+```
+Các API sẽ có dạng như sau:
+```json
+app.get('/', function (req, res) {res.send('Hello World')})
+///method get ; trả về nội dung Hello world
+```
+=> Trong bài này, mình đang viết API thêm sửa xoá cho 1 sp (Tham khảo bên file index nhé)!
+`Bước 1`: Tạo 1 mảng danh sách products
+`Bước 2`: Viết API chuẩn METHOD để:
+- Trả về danh sách sản phẩm bằng method GET
+- Thêm 1 sản phẩm vào danh sách bằng method POST
+- Cập nhật 1 sản phẩm vào danh sách bằng method PUT
+- Xoá 1 sản phẩm khỏi danh sách bằng method DELETE
 
+=> Cú pháp viết như viết 1 hàm thông thường thôi!
 
+*** Để chạy thử API vừa tạo, bạn đừng quên cài POSTMAN trên máy nhé!
+Link cài https://www.postman.com/downloads/
+=> Hướng dẫn chạy API cơ bản trên POSTMAN
 
-Bước 2: Viết API thêm sửa xoá
-Bước 3: Kết nối database
+Bước 3: Kết nối database MOGO
 Bước 4: Xây dựng tính năng Đăng nhập 
 Bước 5: Phân quyền
 
