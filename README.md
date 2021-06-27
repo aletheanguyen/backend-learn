@@ -174,6 +174,44 @@ Link cài https://www.postman.com/downloads/
 => Hướng dẫn chạy API cơ bản trên POSTMAN
 
 Bước 3: Kết nối database MOGO
+- Để cài đặt mogo trước tiên bạn phải có Docker trên máy nhé!
+Link https://www.docker.com/get-started
+
+Khi đã có docker, bạn khởi tạo 1 máy ảo để chạy database - mongo theo lệnh sau:
+```shell
+docker run --name test-backend --port 37017:27017   -d mongo
+```
+Trong đó: 
++ test-backend => là tên máy ảo để run mogodb
++ 27017 => là port mặc định của máy ảo Docker tạo ra để bạn kết nối
++ 37017 => là port trên máy của bạn và bạn mong muốn kết nối nó với port 27017 ở trên
+
+Tiếp theo, bạn sẽ kết nối project hiện tại với database mongo bằng cách cài đặt mongo qua cú pháp:
+```shell
+npm install mongodb @types/mongodb --save
+```
+Sau khi cài đặt xong đừng quên copy nhanh đoạn code này vào file index/ts nhé!:
+```json
+import { MongoClient } from "mongodb"
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:37017';
+
+// Database Name
+const dbName = 'hai-test-backend';
+const client = new MongoClient(url);
+// Use connect method to connect to the server
+client.connect(function (err) {
+    assert.equal(null, err);
+    const db = client.db(dbName);
+    // Định nghĩa API ở đây nhé!
+    let port = 3000;
+    app.listen(port)
+}
+```
+
+
 Bước 4: Xây dựng tính năng Đăng nhập 
 Bước 5: Phân quyền
 

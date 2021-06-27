@@ -1,15 +1,10 @@
-console.log("hello world");
+import { app } from "./app/Express";
+import { connectMongo } from "./database/MongoConnector";
+import requireDir from 'require-dir'
+import { config } from "./config/Config";
 
-interface Product {
-    name: string
-}
 
-let prod: Product = {
-    name: "ho hieu 123"
-}
-
-console.log(prod);
-
-const sum = (a, b) => a + b
-let products: Product[] = []
-products.map(p => p.name)
+connectMongo(config.mongo.uri, config.mongo.dbName, (db) => {
+    app.listen(3001)
+    requireDir("./controller")
+})
